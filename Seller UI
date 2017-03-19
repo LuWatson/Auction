@@ -10,22 +10,20 @@
       <fieldset>
         <legend>Text input</legend>
         <p>
-          <label>Text box</label>
+          <label>VIN</label>
           <input type = "text"
                  id = "VIN"
-                 value = "text here" />
+                 value = "" />
         </p>
         <p>
-          <label>Password</label>
-          <input> type = "password"
-                  id = "myPwd"
-                  value = "secret" />
+          <label>Mileage</label>
+          <input type = "text"
+                 id = "VIN"
+                 value = "" />
         </p>
         <p>
-          <label>Text Area</label>
-          <textarea> id = "myTextArea"
-                  rows = "3"
-                  cols = "80">Your text here</textarea>
+          <label>Notes</label>
+          <textarea>  </textarea>
         </p>
       </fieldset>
     </form>
