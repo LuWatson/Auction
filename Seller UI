@@ -1,31 +1,17 @@
 <!DOCTYPE html>
 <html lang = "en">
   <head>
-    <title>formDemo.html</title>
+    <title>Wholesale.html</title>
     <meta charset = "UTF-8" />
   </head>
   <body>
-    <h1>Form Demo</h1>
-    <form>
-      <fieldset>
-        <legend>Text input</legend>
-        <p>
-          <label>VIN</label>
-          <input type = "text"
-                 id = "VIN"
-                 value = "" />
-        </p>
-        <p>
-          <label>Mileage</label>
-          <input type = "text"
-                 id = "VIN"
-                 value = "" />
-        </p>
-        <p>
-          <label>Notes</label>
-          <textarea>  </textarea>
-        </p>
-      </fieldset>
+    <h1>Wholesale Quote Submission</h1>
+		
+    <form action="/action_page.php">
+
+			Full VIN: <input type="text" name="VIN" value=""><br><br>
+			Mileage: <input type="number" name="Mileage" value=""><br>
+			<input type="submit" value="Submit">
     </form>
   </body>
 </html>
