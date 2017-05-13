@@ -1,0 +1,5 @@
+VIN = int(raw_input("Enter a VIN:"))
+Mileage = int(raw_input("Enter Mileage:"))
+
+if VIN.len()!=17:
+  print "VIN is not 17 digits"
