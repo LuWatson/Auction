@@ -1,3 +1,7 @@
+ $ pip install Flask
+ $ python hello.py
+
+
 VIN = int(raw_input("Enter a VIN:"))
 Mileage = int(raw_input("Enter Mileage:"))
 
