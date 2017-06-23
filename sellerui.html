@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang = "en">
+   <head>
+      <!--for CSS use when opening from flask (these also don't yield the same result) -->
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='mystyle.css') }}">
+      <!--for CSS use when opening directly (these also don't yield the same result) -->
+      <link rel="stylesheet" type="text/css" href="../static/mystyle.css">
+      <title>Wholesale.html</title>
+   </head>
+   <center>
+			<div class="header">
+      <br><ul class="button2">
+         <li><a href="/home.html" >Return Home</a></li>
+         <li><a href="/buyerui.html">Bid Vehicles</a></li>
+			<li><img src="http://i65.tinypic.com/14xjfck.png"></li>
+      </ul>
+			</div>
+	 </center>
+      <body>
+				<center>
+         </div>
+         <br><br><h1>Wholesale Quote Submission</h1>
+         <form action="." method='POST'>
+            <div class="leftbox">
+               Model Year <br>
+               Make <br>
+               Model <br>
+               Trim <br>
+               Body Style <br>
+               Drivetrain <br>
+               Transmission <br>
+               Full VIN <br>
+               Mileage <br>
+            </div>
+            <input class="rightbox" type="number" name="my" value=""><br>
+            <input class="rightbox" type="text" name="make" value=""><br>
+            <input class="rightbox" type="text" name="model" value=""><br>
+            <input class="rightbox" type="text" name="trim" value=""><br>
+            <input class="rightbox" type="text" name="body_style" value=""><br>
+            <input class="rightbox" type="text" name="drivetrain" value=""><br>
+            <input class="rightbox" type="text" name="transmission" value=""><br>
+            <input class="rightbox" type="text" name="vin" value=""><br>
+            <input class="rightbox" type="number" name="mileage" value=""><br><br>
+            <input class="endbox" type="submit" value="Submit">
+         </form>
+         <br>
+	 </center>
+   </body>
+</html>
+
