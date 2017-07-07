@@ -2,21 +2,36 @@
 <head>
       <!--for CSS use when opening from flask (these also don't yield the same result) -->
       <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='mystyle.css') }}">
-      <!--for CSS use when opening directly (these also don't yield the same result) -->
-      <link rel="stylesheet" type="text/css" href="../static/mystyle.css">
       <title>Wholesale.html</title>
    </head>
-   <center>
 <div class="header">
       <br><ul class="button2">
-         <li><a href="file:///Users/pxteam/Desktop/folder of stuff/templates/home.html" >Return Home</a></li>
-         <li><a href="file:///Users/pxteam/Desktop/folder of stuff/templates/sellerui.html">Submit Vehicle</a></li>
+         <li><a href="/home">Return Home</a></li>
+         <li><a href="/">Submit Vehicle</a></li>
 	<li><img src="http://i65.tinypic.com/14xjfck.png"></li>
       </ul>
 </div>
-	 
 <body>
-<br><br><h2>Page to submit bids</h2>
+<br><br>
+<h1>Wholesale Bidding</h1>
+<!--Dropdown of VINS from entries database-->
+<form action="{{ url_for('add_entry') }}" method='POST'>
+<select name="VIN">
+	{% for entry in entries %}
+  <option value="VIN_2">{{entry.vin}}</option>
+	{% endfor %}
+</select>
+<!--Blank input box for bid-->
+<input type="number" name="bid1" value="">
+<input class="endbox" type="submit" value="Submit">
+</form>
+<!--display all results in db-->
+<ul id="results" style="list-style-type: none;">
+				<li><b>VIN -</b> year make model trim drivetrain transmission mileage</li>
+				{% for entry in entries %}
+				<li><b>{{ entry.vin }}-</b> {{ entry.my|safe }} {{ entry.make }} {{ entry.model }} {{ entry.trim }} {{ entry.body_style }} {{ entry.drivetrain }} {{ entry.transmission }} {{ entry.mileage }}
+				{% endfor %}	
+</ul>
+</div>
 </body>
-</center>
 </html>
