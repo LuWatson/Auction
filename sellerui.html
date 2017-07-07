@@ -3,15 +3,13 @@
    <head>
       <!--for CSS use when opening from flask (these also don't yield the same result) -->
       <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='mystyle.css') }}">
-      <!--for CSS use when opening directly (these also don't yield the same result) -->
-      <link rel="stylesheet" type="text/css" href="../static/mystyle.css">
       <title>Wholesale.html</title>
    </head>
    <center>
 			<div class="header">
       <br><ul class="button2">
-         <li><a href="/home.html" >Return Home</a></li>
-         <li><a href="/buyerui.html">Bid Vehicles</a></li>
+         <li><a href="/home" >Return Home</a></li>
+         <li><a href="/buyerui">Bid Vehicles</a></li>
 			<li><img src="http://i65.tinypic.com/14xjfck.png"></li>
       </ul>
 			</div>
@@ -19,8 +17,8 @@
       <body>
 				<center>
          </div>
-         <br><br><h1>Wholesale Quote Submission</h1>
-         <form action="." method='POST'>
+         <br><br><h1>Wholesale Submission</h1>
+         <form action="{{ url_for('add_entry') }}" method='POST'>
             <div class="leftbox">
                Model Year <br>
                Make <br>
@@ -36,15 +34,25 @@
             <input class="rightbox" type="text" name="make" value=""><br>
             <input class="rightbox" type="text" name="model" value=""><br>
             <input class="rightbox" type="text" name="trim" value=""><br>
-            <input class="rightbox" type="text" name="body_style" value=""><br>
-            <input class="rightbox" type="text" name="drivetrain" value=""><br>
-            <input class="rightbox" type="text" name="transmission" value=""><br>
-            <input class="rightbox" type="text" name="vin" value=""><br>
+				<!--body style dropdown-->
+				<div style="margin:4px;">
+				<select class="rightbox" name="body_style"><option value="coupe">Coupe</option><option value="convertible">Convertible</option>
+				<option value="hatchback">Hatchback</option><option value="sedan">Sedan</option><option value="suv">SUV</option>
+				<option value="van">Van</option></select><br>
+            <select class="rightbox" name="drivetrain"><option value="2WD">2WD</option><option value="4WD">4WD</option><option value="AWD">AWD</option></select><br>
+				<select class="rightbox" name="transmission"><option value="automatic">Automatic</option><option value="manual">Manual</option></select><br>
+				</div>
+				<!--end of dropdowns-->
+				<input class="rightbox" type="text" name="vin" value=""><br>
             <input class="rightbox" type="number" name="mileage" value=""><br><br>
             <input class="endbox" type="submit" value="Submit">
          </form>
          <br>
-	 </center>
+	</center>
+			  <ul id="results" style="list-style-type: none;">
+				<li><b>VIN - </b>year make model trim drivetrain transmission mileage</li>
+				{% for entry in entries %}
+				<li><b>{{ entry.vin }}-</b> {{ entry.my|safe }} {{ entry.make }} {{ entry.model }} {{ entry.trim }} {{ entry.body_style }} {{ entry.drivetrain }} {{ entry.transmission }} {{ entry.mileage }}
+				{% endfor %}
    </body>
 </html>
-
