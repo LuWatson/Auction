@@ -66,8 +66,8 @@ def submit_entries():
 @app.route('/add', methods=['POST'])
 def add_entry():
 	db = get_db()
-	db.execute('insert into entries (my, make, model, trim, body_style, drivetrain, transmission, vin, mileage, bid1) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-	             [request.form['my'], request.form['make'], request.form['model'],request.form['trim'],request.form['body_style'],request.form['drivetrain'] ,request.form['transmission'],request.form['vin'], request.form['mileage'], request.form['bid1']])
+	db.execute('insert into entries (my, make, model, trim, body_style, drivetrain, transmission, vin, mileage) values (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+	             [request.form['my'], request.form['make'], request.form['model'],request.form['trim'],request.form['body_style'],request.form['drivetrain'] ,request.form['transmission'],request.form['vin'], request.form['mileage']])
 	db.commit()
 	flash('Vehicle submitted')
 	return redirect(url_for('submit_entries'))
